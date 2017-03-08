@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!--Vehicle-->
+        <record model="ir.ui.view" id="fleet_vehicle_form2">
+            <field name="name">fleet.vehicle.form2</field>
+            <field name="model">fleet.vehicle</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='act_show_log_cost']" position="after">
+                    <button name="return_analytic_journal_items"
+                            class="oe_stat_button"
+                            type="object"
+                            icon="fa-book"
+                            help="Show journal items for this account" >
+                            <field name="analytic_journal_count" widget="statinfo" string="Journal"/>
+                     </button>
+                </xpath>
+                <field name="owner" position="after">
+                    <field name="department_id"/>
+                    <field name="project_id"/>
+                </field>
+                <field name="rim_id" position="after">
+                    <field name="analytic_account_id" readonly="1"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
